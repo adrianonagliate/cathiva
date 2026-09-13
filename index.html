@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b09" />
+  <meta name="description" content="Cathiva Cervejaria — uma história feita de cerveja, natureza e sonhos." />
+  <title>Cathiva Cervejaria</title>
+  <link rel="icon" href="assets/favicon.png" />
+  <style>
+    :root{
+      --black:#0b0b09;
+      --black-soft:#14140f;
+      --gold:#b49b14;
+      --gold-soft:#d6c36a;
+      --cream:#f2ead7;
+      --cream-dim:#d8cfbc;
+      --white:#fffdf8;
+      --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--black);
+      color:var(--cream);
+      font-family:Georgia,"Times New Roman",serif;
+      line-height:1.65;
+    }
+    img{max-width:100%;display:block}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+
+    .hero{
+      min-height:100svh;
+      position:relative;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.20),rgba(0,0,0,.64)),
+        url('assets/morro-azul-entardecer.jpg') center/cover no-repeat;
+      isolation:isolate;
+    }
+    .hero::after{
+      content:"";position:absolute;inset:auto 0 0;height:34%;
+      background:linear-gradient(transparent,var(--black));z-index:-1;
+    }
+    .hero-inner{padding:70px 20px 130px;display:flex;flex-direction:column;align-items:center}
+    .logo{width:min(360px,72vw);filter:drop-shadow(0 8px 28px rgba(0,0,0,.45));}
+    .tagline{margin:22px 0 0;font-size:clamp(1.05rem,2.2vw,1.5rem);letter-spacing:.06em;color:var(--white);text-shadow:0 2px 16px rgba(0,0,0,.75)}
+    .scroll{position:absolute;bottom:30px;font:600 .75rem/1.2 Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+
+    section{padding:100px 0}
+    .eyebrow{font:700 .76rem/1 Arial,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px}
+    h1,h2,h3,p{margin-top:0}
+    h2{font-size:clamp(2.2rem,5vw,4.3rem);line-height:1.04;font-weight:500;color:var(--white);margin-bottom:28px}
+    p{font-size:clamp(1.04rem,1.5vw,1.22rem);color:var(--cream-dim)}
+
+    .story{background:var(--black)}
+    .story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+    .story-photo{border-radius:2px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+    .story-photo img{width:100%;height:630px;object-fit:cover}
+
+    .dream{background:var(--cream);color:#242015}
+    .dream h2{color:#17150f}
+    .dream p{color:#5b5547}
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+    .pillar{padding:34px 30px;border-top:1px solid rgba(74,64,24,.28)}
+    .pillar .num{font:700 .75rem/1 Arial,sans-serif;letter-spacing:.15em;color:#8f7a10;margin-bottom:28px}
+    .pillar h3{font-size:1.65rem;margin-bottom:10px;color:#1c1a13;font-weight:500}
+    .pillar p{font-size:1rem;margin:0}
+
+    .landscape{padding:0;background:#000}
+    .landscape img{width:100%;height:min(76vw,820px);object-fit:cover}
+    .landscape-caption{position:relative;margin-top:-118px;padding:0 0 52px;color:white;text-shadow:0 2px 18px rgba(0,0,0,.7)}
+    .landscape-caption strong{display:block;font-size:clamp(1.5rem,3vw,2.5rem);font-weight:500}
+    .landscape-caption span{font:500 .92rem/1.4 Arial,sans-serif;letter-spacing:.08em}
+
+    .present{background:var(--black-soft)}
+    .present-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
+    .present-art{background:#050504;padding:24px;border:1px solid rgba(180,155,20,.22)}
+    .present-art img{width:100%;aspect-ratio:1.1/1;object-fit:contain}
+    .quote-small{font-size:clamp(1.45rem,2.7vw,2.3rem);line-height:1.35;color:var(--white);max-width:720px}
+
+    .closing{
+      min-height:100svh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      position:relative;
+      background:
+        linear-gradient(180deg,rgba(6,6,4,.84),rgba(6,6,4,.91)),
+        url('assets/igarata-represa.jpg') center/cover no-repeat;
+      padding:90px 20px;
+    }
+    .closing-logo{width:120px;margin:0 auto 42px;opacity:.92}
+    .closing h2{font-size:clamp(3rem,8vw,7.4rem);line-height:.98;letter-spacing:-.035em;margin:0 auto;max-width:1100px;color:var(--white)}
+    .closing h2 span{display:block;color:var(--gold-soft);margin-top:.18em}
+    .place{margin-top:44px;font:600 .78rem/1 Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.68)}
+
+    footer{padding:30px 20px;text-align:center;background:#050504;color:#827d70;font:500 .78rem/1.4 Arial,sans-serif;letter-spacing:.08em}
+
+    @media (max-width:850px){
+      section{padding:76px 0}
+      .story-grid,.present-grid{grid-template-columns:1fr;gap:38px}
+      .story-photo{order:-1}
+      .story-photo img{height:55vh;min-height:380px}
+      .pillars{grid-template-columns:1fr;gap:0}
+      .pillar{padding-left:0;padding-right:0}
+      .present-art{padding:12px}
+      .closing{min-height:92svh}
+    }
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <img class="logo" src="assets/logo-cathiva.png" alt="Cathiva" />
+      <p class="tagline">Uma história feita de cerveja, natureza e sonhos.</p>
+    </div>
+    <div class="scroll">Role para conhecer</div>
+  </header>
+
+  <main>
+    <section class="story">
+      <div class="wrap story-grid">
+        <div>
+          <div class="eyebrow">Nossa história</div>
+          <h2>Um sonho que ganhou forma em Igaratá.</h2>
+          <p>A Cathiva nasceu de uma paixão pela cerveja artesanal e de um sonho: criar um lugar onde cerveja, natureza e boas experiências pudessem se encontrar.</p>
+          <p>Foi em Igaratá, no interior de São Paulo, que esse projeto começou a ganhar forma. Mais do que produzir cerveja, imaginamos um espaço para receber pessoas, compartilhar momentos e celebrar tudo aquilo que existe ao redor de uma boa cerveja.</p>
+          <p>Durante essa jornada, a Cathiva deixou de ser apenas uma ideia. Ganhou identidade, projetos, sabores, histórias e pessoas que acreditaram conosco.</p>
+        </div>
+        <figure class="story-photo">
+          <img src="assets/igarata-panorama.jpg" alt="Paisagem de Igaratá vista do Morro Azul" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="dream">
+      <div class="wrap">
+        <div class="eyebrow">O que sonhamos construir</div>
+        <h2>Cerveja, natureza e experiência.</h2>
+        <p>Desde o princípio, a Cathiva foi pensada para ir além da bebida. A proposta era proporcionar uma experiência diferenciada, unindo os encantos naturais do Brasil a uma linha de cervejas artesanais e a momentos que valessem a viagem.</p>
+        <div class="pillars">
+          <article class="pillar">
+            <div class="num">01</div>
+            <h3>Cerveja artesanal</h3>
+            <p>Receitas, rótulos e produtos criados com cuidado, identidade e vontade de oferecer algo especial.</p>
+          </article>
+          <article class="pillar">
+            <div class="num">02</div>
+            <h3>Igaratá</h3>
+            <p>Um lugar escolhido pela paisagem, pela natureza e pelo convite para desacelerar e aproveitar o caminho.</p>
+          </article>
+          <article class="pillar">
+            <div class="num">03</div>
+            <h3>Experiências</h3>
+            <p>Mais do que consumir cerveja: viver encontros, conversas, passeios e memórias em torno dela.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="landscape" aria-label="Paisagem de Igaratá">
+      <img src="assets/morro-azul-entardecer.jpg" alt="Vista de Igaratá e da represa ao entardecer" />
+      <div class="wrap landscape-caption">
+        <strong>Morro Azul — Igaratá</strong>
+        <span>O horizonte que inspirou a Cathiva.</span>
+      </div>
+    </section>
+
+    <section class="present">
+      <div class="wrap present-grid">
+        <div class="present-art">
+          <img src="assets/cathiva-presente.png" alt="Latas Cathiva Lager em uma caixa de presente" />
+        </div>
+        <div>
+          <div class="eyebrow">Um projeto construído com paixão</div>
+          <p class="quote-small">Houve uma marca. Houve rótulos. Houve um sonho. E isso permanece fazendo parte da nossa história.</p>
+          <p>Cada detalhe da Cathiva foi pensado para transformar uma paixão em algo real. Dos primeiros estudos e projetos à identidade da marca, das receitas de cerveja à escolha de Igaratá como nossa casa, foram muitos passos, aprendizados e histórias construídas ao longo do caminho.</p>
+          <p>Nem todos os projetos seguem exatamente o destino que imaginamos quando começam. Alguns realizam seu propósito também pelo caminho que nos fazem percorrer, pelas pessoas que aproximam e por tudo aquilo que nos ensinam.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story">
+      <div class="wrap" style="max-width:820px;text-align:center">
+        <div class="eyebrow">Um ciclo que se encerra</div>
+        <h2>O projeto original da Cathiva Cervejaria chegou ao fim.</h2>
+        <p>Ficam as histórias, as experiências, os encontros, os aprendizados e, principalmente, o carinho por tudo aquilo que construímos.</p>
+        <p>A todos que acompanharam, apoiaram, participaram ou simplesmente torceram pela Cathiva em algum momento dessa jornada: <strong style="color:var(--white)">obrigado por fazer parte dessa história.</strong></p>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div>
+        <img class="closing-logo" src="assets/favicon.png" alt="Símbolo Cathiva" />
+        <h2>Alguns ciclos se encerram.<span>Outros começam a se desenhar.</span></h2>
+        <div class="place">Cathiva Cervejaria · Igaratá · São Paulo</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© Cathiva Cervejaria · Uma história que permanece.</footer>
+</body>
+</html>
